@@ -154,7 +154,7 @@ const updateCha = () => {
     <h1>V-Model - Binding nhieu chieu</h1>
     <p>Cha: {{ username }} - {{ email }}</p>
     <!-- <ComponentVModel :username="username" :email="email" /> -->
-    <ComponentVModel v-model:username="username" v-model:email="email" />
+    <ComponentVModel v-model:u1="username" v-model:e1="email" />
     <button @click="updateCha">Update cha</button>
   </div>
 </template>

@@ -10,8 +10,8 @@
 // emits
 // Neu truyen bien bt => defineProps
 // 2 chieu => defineModel
-const email = defineModel('email')
-const username = defineModel('username')
+const email = defineModel('e1')
+const username = defineModel('u1')
 // const props = defineProps({
 //   username: String,
 //   email: String,
