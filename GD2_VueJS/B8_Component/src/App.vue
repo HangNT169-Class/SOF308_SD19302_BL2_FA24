@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import ButtonComponent from './component/ButtonComponent.vue'
+import ComponentVModel from './component/ComponentVModel.vue'
 
 const nhanViens = ref([
   {
@@ -26,6 +27,18 @@ const nhanViens = ref([
   },
 ])
 const number1 = ref(5)
+const count = ref(0)
+const increaseValue = () => {
+  count.value++
+}
+const increaseValue2 = () => {
+  count.value += 2
+}
+const username = ref('HangNT169')
+const email = ref('HangNT169@fpt.edu.vn')
+const updateCha = () => {
+  ;(username.value = 'Cha'), (email.value = 'cha@gmail.com')
+}
 </script>
 
 <template>
@@ -120,7 +133,28 @@ const number1 = ref(5)
     <!-- Khi truyen du lieu => luon luon chuyen sang : String
       Minh muon khai bao kieu khac String => them dau :truoc ten truyen sang
        -->
-    <ButtonComponent countValue="das" :count1Value="number1" />
+    <!-- COMPONENT => GIA TRI COMPONENT CHI DC TRUYEN 1 CHIEU => CHA =>CON -->
+    <!-- Cha => con: props => KIEU DU LIEU STRING
+      PROPS : GIA TRI
+       -->
+    <!-- Truyen event vao cho tu cha -> con : @tenhamcantruyen
+     @tencondung = tenhambo
+     -->
+    <p>Count = {{ count }}</p>
+    <ButtonComponent
+      countValue="das"
+      :count1Value="number1"
+      @increaseValueNumber="increaseValue"
+      @increaseValueUpTo2="increaseValue2"
+    />
     <p>Cha: <ComponetA /></p>
+  </div>
+  <div>
+    <!-- Ho tro binding nhieu chieu  3.4 tro len -->
+    <h1>V-Model - Binding nhieu chieu</h1>
+    <p>Cha: {{ username }} - {{ email }}</p>
+    <!-- <ComponentVModel :username="username" :email="email" /> -->
+    <ComponentVModel v-model:username="username" v-model:email="email" />
+    <button @click="updateCha">Update cha</button>
   </div>
 </template>
